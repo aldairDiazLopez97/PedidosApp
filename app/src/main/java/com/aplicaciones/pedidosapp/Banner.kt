@@ -33,15 +33,11 @@ class Banner : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
 
         val toolbar: androidx.appcompat.widget.Toolbar= findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
-
         drawer = findViewById(R.id.drawer_layout)
-
         toggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer.addDrawerListener(toggle)
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
-
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener (this )
     }
@@ -97,7 +93,6 @@ class Banner : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
         if(toggle.onOptionsItemSelected(item)){
             return true
         }
-
         return super.onOptionsItemSelected(item)
     }
 

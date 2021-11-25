@@ -7,21 +7,12 @@
     tools:context=".Banner"
     android:id="@+id/drawer_layout"
     tools:openDrawer="start">
-    <include
-        layout="@layout/app_bar_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-
         android:layout_height="match_parent">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -32,7 +23,6 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="63dp"
@@ -227,5 +217,16 @@
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <include
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer"/>
 </androidx.drawerlayout.widget.DrawerLayout>

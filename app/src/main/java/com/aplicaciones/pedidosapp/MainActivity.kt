@@ -14,6 +14,7 @@ import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.activity_plate_list.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,6 +24,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val plate = Plate(R.drawable.frejolada ,"Frejolada","Lo mas deliciosos en comida","Criollo",20.00)
+        val plate1 = Plate(R.drawable.ceviche ,"Ceviche","Lo mas deliciosos en mariscos","Mariscos",30.00)
+
+        val lPlate = listOf(plate,plate1)
+        val adapt = PlateAdapter(this,lPlate)
+
+        listp.adapter= adapt
+
+
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -80,9 +80,9 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
     }
-
+    // *********************************************
     private fun reload() {
-        val intent = Intent (this, MainActivity::class.java)
+        val intent = Intent (this, Banner::class.java)
         this.startActivity(intent)
     }
 

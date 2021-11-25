@@ -62,6 +62,7 @@ class UpdatePasswordActivity : AppCompatActivity() {
                                 if (taskUpdatePassword.isSuccessful) {
                                     Toast.makeText(this, "Se cambio la contraseña.",
                                         Toast.LENGTH_SHORT).show()
+                                    //*********************
                                     val intent = Intent(this, MainActivity::class.java)
                                     this.startActivity(intent)
                                 }

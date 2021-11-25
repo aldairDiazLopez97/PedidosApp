@@ -24,10 +24,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        // Initialize Firebase Auth
-        auth = Firebase.auth
 
         val plate = Plate(R.drawable.frejolada ,"Frejolada","Lo mas deliciosos en comida","Criollo",20.00)
         val plate1 = Plate(R.drawable.ceviche ,"Ceviche","Lo mas deliciosos en mariscos","Mariscos",30.00)
@@ -39,7 +35,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        // Initialize Firebase Auth
+        auth = Firebase.auth
 
         // Esto si se agrega el boton de cerrar sesion
         binding.signOutImageView.setOnClickListener{

@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_item_of_list.view.*
 import kotlinx.android.synthetic.main.activity_sign_in.view.*
 
-class PlateAdapter(private val mContext:Context, private val listaPlatos: List<Plate>): ArrayAdapter<Plate>(mContext,0,listaPlatos){
+class PlateAdapter(private val mContext:Context, private val listPlates: List<Plate>): ArrayAdapter<Plate>(mContext,0,listPlates){
 
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -17,12 +17,12 @@ class PlateAdapter(private val mContext:Context, private val listaPlatos: List<P
 
 
 
-        val platos = listaPlatos[position]
+        val platos = listPlates[position]
 
         layout.nombre.text = platos.nombre
         layout.descripcion.text = platos.descripcion
         layout.precio.text= "$${platos.precio}"
-        layout.imageView2.setImageResource(platos.imagen)
+        layout.imagen.setImageResource(platos.imagen)
 
 
         return layout

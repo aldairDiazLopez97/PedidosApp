@@ -163,7 +163,7 @@
                 android:paddingLeft="64dp"
                 android:paddingRight="64dp"
                 android:layout_gravity="center"
-                android:text="Platos"
+                android:text="+ Platos"
                 android:textColor="@color/white" />
 
             <LinearLayout

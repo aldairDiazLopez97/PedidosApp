@@ -25,6 +25,8 @@
             android:gravity="center"
             android:text="PANEL ADMINISTRATIVO"
             android:textSize="24sp"
+            android:paddingLeft="64dp"
+            android:paddingRight="64dp"
             android:textColor="@color/white"
             android:background="@drawable/ic_buttom"
             />

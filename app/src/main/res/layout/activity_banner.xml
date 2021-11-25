@@ -4,16 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Banner">
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="675dp"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+
             android:orientation="vertical">
 
             <TextView
@@ -21,10 +27,11 @@
                 android:layout_height="63dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Bienvenido al Restaurant Bohemian"
-                android:textColor="#090909"
-                android:textSize="18dp"
-                android:typeface="serif" />
+                android:text="Bienvenido al Restaurant Bohemia"
+                android:textColor="@color/white"
+                android:background="@drawable/ic_buttom"
+
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="325dp"
@@ -33,6 +40,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center_horizontal"
+                android:background="@color/white"
                 android:orientation="horizontal">
 
 
@@ -58,9 +66,8 @@
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:text="COMIDA CRIOLLA"
-                        android:textColor="#090909"
-                        android:textSize="13dp"
-                        android:typeface="serif" />
+                        android:textColor="#ff9900"
+                        android:textSize="13dp"/>
 
                     <TextView
                         android:layout_width="100dp"
@@ -70,9 +77,8 @@
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:text="Puedes disfrutar de los mejores platos criollos dentro del restaurant Bohemian "
-                        android:textColor="#090909"
-                        android:textSize="10dp"
-                        android:typeface="serif" />
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
                 </LinearLayout>
 
 
@@ -83,6 +89,8 @@
                     android:layout_marginTop="70dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_buttom"
+
                     android:src="@drawable/fleeee" />
 
             </LinearLayout>
@@ -94,6 +102,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center_horizontal"
+                android:background="@color/white"
                 android:orientation="horizontal">
 
 
@@ -119,9 +128,8 @@
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:text="MARISCOS"
-                        android:textColor="#090909"
-                        android:textSize="13dp"
-                        android:typeface="serif" />
+                        android:textColor="#ff9900"
+                        android:textSize="13dp" />
 
                     <TextView
                         android:layout_width="100dp"
@@ -131,9 +139,8 @@
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:text="Puedes disfrutar de los mejores mariscos dentro del restaurant Bohemian "
-                        android:textColor="#090909"
-                        android:textSize="10dp"
-                        android:typeface="serif" />
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
                 </LinearLayout>
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -143,6 +150,7 @@
                     android:layout_marginTop="70dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_buttom"
                     android:src="@drawable/fleeee" />
 
             </LinearLayout>
@@ -153,6 +161,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
+                android:background="@color/white"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
@@ -179,9 +188,8 @@
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:text="MENU"
-                        android:textColor="#090909"
-                        android:textSize="13dp"
-                        android:typeface="serif" />
+                        android:textColor="#ff9900"
+                        android:textSize="13dp" />
 
                     <TextView
                         android:layout_width="100dp"
@@ -191,9 +199,8 @@
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:text="Puedes disfrutar de los mejores menus dentro del restaurant Bohemian "
-                        android:textColor="#090909"
-                        android:textSize="10dp"
-                        android:typeface="serif" />
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
                 </LinearLayout>
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -203,7 +210,9 @@
                     android:layout_marginTop="70dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/fleeee" />
+                    android:src="@drawable/fleeee"
+                    android:background="@drawable/ic_buttom"
+                    />
 
             </LinearLayout>
 

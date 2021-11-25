@@ -24,16 +24,18 @@
             android:layout_margin="15dp"
             android:gravity="center"
             android:text="PANEL ADMINISTRATIVO"
-            android:textColor="#090909"
-            android:textSize="20dp"
-            android:typeface="serif" />
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:background="@drawable/ic_buttom"
+            />
 
         <ImageView
+            android:id="@+id/profileImageView"
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_margin="15dp"
-            android:src="@drawable/ic_user" />
+            app:srcCompat="@drawable/profile_photo" />
 
         <TextView
             android:layout_width="match_parent"
@@ -41,9 +43,8 @@
             android:layout_margin="15dp"
             android:gravity="center"
             android:text="Elige tu opcion"
-            android:textColor="#090909"
-            android:textSize="15dp"
-            android:typeface="serif" />
+            android:textColor="#ff9900"
+            android:textSize="15dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +58,10 @@
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:text="REGISTRAR PRODUCTO"
-                app:backgroundTint="#090909" />
+                android:background="@drawable/ic_buttom"
+                android:paddingLeft="64dp"
+                android:paddingRight="64dp"
+                android:textColor="@color/white"/>
 
             <Button
                 android:layout_width="250dp"
@@ -65,7 +69,10 @@
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:text="VISUALIZAR PEDIDO"
-                app:backgroundTint="#090909" />
+                android:background="@drawable/ic_buttom"
+                android:paddingLeft="64dp"
+                android:paddingRight="64dp"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

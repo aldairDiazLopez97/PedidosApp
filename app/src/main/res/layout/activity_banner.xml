@@ -18,208 +18,214 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"/>
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/ic_buttom"
-                android:gravity="center"
-                android:text="Bienvenido al Restaurant Bohemia"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                />
+            android:layout_gravity="center_horizontal">
 
             <LinearLayout
-                android:layout_width="325dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/tipico"
-                    app:civ_border_width="2dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_buttom"
+                    android:gravity="center"
+                    android:text="Bienvenido al Restaurant Bohemia"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    />
 
                 <LinearLayout
-                    android:layout_width="148dp"
+                    android:layout_width="325dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center"
-                        android:text="COMIDA CRIOLLA"
-                        android:textColor="#ff9900"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center"
-                        android:text="Puedes disfrutar de los mejores platos criollos dentro del restaurant Bohemian "
-                        android:textColor="#090909"
-                        android:textSize="10dp" />
-                </LinearLayout>
-
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="29dp"
-                    android:layout_height="34dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/fleeee"
-                    android:background="@drawable/ic_buttom"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="325dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
 
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/mariscos"
-                    app:civ_border_width="2dp" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/tipico"
+                        app:civ_border_width="2dp" />
+
+                    <LinearLayout
+                        android:layout_width="148dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="COMIDA CRIOLLA"
+                            android:textColor="#ff9900"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Puedes disfrutar de los mejores platos criollos dentro del restaurant Bohemian "
+                            android:textColor="#090909"
+                            android:textSize="10dp" />
+                    </LinearLayout>
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="29dp"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:src="@drawable/fleeee"
+                        android:background="@drawable/ic_buttom"/>
+
+                </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="150dp"
+                    android:layout_width="325dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center"
-                        android:text="MARISCOS"
-                        android:textColor="#ff9900"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center"
-                        android:text="Puedes disfrutar de los mejores mariscos dentro del restaurant Bohemian "
-                        android:textColor="#090909"
-                        android:textSize="10dp" />
-                </LinearLayout>
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="29dp"
-                    android:layout_height="34dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/fleeee"
-                    android:background="@drawable/ic_buttom"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="325dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
 
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/menu"
-                    app:civ_border_width="2dp" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/mariscos"
+                        app:civ_border_width="2dp" />
+
+                    <LinearLayout
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="MARISCOS"
+                            android:textColor="#ff9900"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Puedes disfrutar de los mejores mariscos dentro del restaurant Bohemian "
+                            android:textColor="#090909"
+                            android:textSize="10dp" />
+                    </LinearLayout>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="29dp"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:src="@drawable/fleeee"
+                        android:background="@drawable/ic_buttom"/>
+
+                </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="149dp"
+                    android:layout_width="325dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center"
-                        android:text="MENU"
-                        android:textColor="#ff9900"
-                        android:textSize="13dp" />
 
-                    <TextView
-                        android:layout_width="100dp"
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/menu"
+                        app:civ_border_width="2dp" />
+
+                    <LinearLayout
+                        android:layout_width="149dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
                         android:gravity="center"
-                        android:text="Puedes disfrutar de los mejores menus dentro del restaurant Bohemian "
-                        android:textColor="@color/black"
-                        android:textSize="10dp" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="MENU"
+                            android:textColor="#ff9900"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Puedes disfrutar de los mejores menus dentro del restaurant Bohemian "
+                            android:textColor="@color/black"
+                            android:textSize="10dp" />
+                    </LinearLayout>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="29dp"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:src="@drawable/fleeee"
+                        android:background="@drawable/ic_buttom"/>
+
                 </LinearLayout>
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="29dp"
-                    android:layout_height="34dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:src="@drawable/fleeee"
-                    android:background="@drawable/ic_buttom"/>
-
             </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
-    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

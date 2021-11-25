@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
-
+    // ************
     private fun signOut() {
         Firebase.auth.signOut()
         val intent = Intent(this, SignInActivity::class.java)

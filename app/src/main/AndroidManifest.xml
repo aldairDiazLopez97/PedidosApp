@@ -9,16 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PedidosApp">
-        <activity android:name=".DeleteAccountActivity"></activity>
+        <activity android:name=".ControlPanel"></activity>
+        <activity android:name=".DeleteAccountActivity" />
         <activity android:name=".UpdatePasswordActivity" />
         <activity android:name=".AccountRecoveryActivity" />
         <activity android:name=".CheckEmailActivity" />
         <activity android:name=".SignUpActivity" />
         <activity
             android:name=".MainActivity"
-
             android:theme="@style/Theme.Main" />
-        <activity android:name=".SignInActivity"
+        <activity
+            android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

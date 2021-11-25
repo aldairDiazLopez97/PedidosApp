@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">App Pedidos</string>
-    <string name="title_active_login">Bohemia Ingreso</string>
+    <string-array name="opciones">
+        <item>Pescados</item>
+        <item>Menu</item>
+        <item>Criollos</item>
+    </string-array>
+    <string name="app_name">Login Firebase</string>
+    <string name="title_active_login">Firebase Login</string>
     <string name="password">Contraseña</string>
     <string name="new_password">Nueva contraseña</string>
     <string name="current_password">Contraseña actual</string>
@@ -10,7 +15,7 @@
     <string name="repeat_password">Confirma la contraseña</string>
     <string name="signup">Sign Up</string>
     <string name="text_signup">No tienes cuenta?</string>
-    <string name="link_signup">Registrate</string>
+    <string name="link_signup">Sin up</string>
     <string name="all">TODO</string>
     <string name="user_email">userdefault@gmail.com</string>
     <string name="user_name">User Default</string>

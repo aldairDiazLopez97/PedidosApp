@@ -2,6 +2,10 @@ package com.aplicaciones.pedidosapp
 
 
 
-class Plate(val imagen:Int,val nombre: String, val descripcion: String , val Tipo:String , val precio:Double){
-
+class Plate(
+    val nombre:String?=null,
+    val descripcion:String?=null,
+    val precio:Double?=null,
+    val tipo: String?= null,
+    val imagen:String?=null){
 }

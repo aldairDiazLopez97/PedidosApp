@@ -22,7 +22,6 @@ class PlateAdapter(private val mContext:Context, private val listPlates: List<Pl
         layout.nombre.text = platos.nombre
         layout.descripcion.text = platos.descripcion
         layout.precio.text= "$${platos.precio}"
-        layout.imagen.setImageResource(platos.imagen)
 
 
         return layout

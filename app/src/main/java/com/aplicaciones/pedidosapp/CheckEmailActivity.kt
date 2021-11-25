@@ -46,9 +46,11 @@ class CheckEmailActivity : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if(currentUser != null){
-            reload();
-        }else{
-            sendEmailVerificacion()
+            if(currentUser.isEmailVerified){
+                reload();
+            }else {
+                sendEmailVerificacion()
+            }
         }
     }
 

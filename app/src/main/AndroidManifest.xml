@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PedidosApp">
-        <activity android:name=".ControlPanel"></activity>
+        <activity android:name=".Banner"></activity>
+        <activity android:name=".ControlPanel" />
         <activity android:name=".DeleteAccountActivity" />
         <activity android:name=".UpdatePasswordActivity" />
         <activity android:name=".AccountRecoveryActivity" />

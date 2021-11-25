@@ -48,15 +48,9 @@ class Banner : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
             R.id.nav_item_platillos -> abrirPlatillos()
             R.id.nav_item_carrito -> abrirCarrito()
             R.id.nav_item_perfil -> abrirPerfil()
-            R.id.nav_item_logout -> signOut()
         }
         drawer.closeDrawer(GravityCompat.START)
         return true
-    }
-    private fun signOut() {
-        Firebase.auth.signOut()
-        val intent = Intent(this, SignInActivity::class.java)
-        startActivity(intent)
     }
 
     private fun abrirPerfil() {

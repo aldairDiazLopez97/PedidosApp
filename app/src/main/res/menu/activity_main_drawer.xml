@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Usuario">
+    <item android:title="Delivery">
         <menu>
             <item android:id="@+id/nav_item_home"
                 android:icon="@drawable/ic_home"
@@ -11,23 +11,23 @@
             <item android:id="@+id/nav_item_carrito"
                 android:icon="@drawable/ic_carrito"
                 android:title="Carrito"/>
-            <item android:id="@+id/nav_item_perfil"
-                android:icon="@drawable/ic_perfil"
-                android:title="Perfil"/>
         </menu>
     </item>
     <item android:title="Empresa">
         <menu>
             <item android:id="@+id/nav_item_about"
-                android:icon="@drawable/ic_email"
+                android:icon="@drawable/ic_about"
                 android:title="About"/>
+            <item android:id="@+id/nav_item_social_media"
+                android:icon="@drawable/ic_social_media"
+                android:title="Social Media"/>
         </menu>
     </item>
-    <item android:title="Perfil">
+    <item android:title="Usuario">
         <menu>
-            <item android:id="@+id/nav_item_logout"
-                android:icon="@drawable/ic_sign_out"
-                android:title="Cerrar Sesioon"/>
+            <item android:id="@+id/nav_item_perfil"
+                android:icon="@drawable/ic_perfil"
+                android:title="Administrar Perfil"/>
         </menu>
     </item>
 

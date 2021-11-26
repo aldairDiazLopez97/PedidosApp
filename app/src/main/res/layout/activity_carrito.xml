@@ -31,9 +31,12 @@
             android:id="@+id/cardView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardMaxElevation="0dp"
-            app:cardCornerRadius="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             app:cardBackgroundColor="#E1F5FE"
+            app:cardCornerRadius="16dp"
+            app:cardMaxElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -41,23 +44,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="140dp"
                     android:layout_height="120dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="16dp"
+                    app:cardCornerRadius="40dp"
                     app:cardMaxElevation="0dp"
-                    app:cardCornerRadius="10dp"
                     app:layout_constraintBottom_toTopOf="@+id/cardView2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/cardView2">
 
                     <ImageView
                         android:id="@+id/imagenurlP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:contentDescription="@string/all"
                         android:scaleType="fitXY"
@@ -66,20 +70,18 @@
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
-                    android:layout_width="213dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/nombre"
                         android:layout_width="154dp"
                         android:layout_height="55dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginEnd="180dp"
-                        android:layout_marginRight="180dp"
-                        android:layout_marginBottom="32dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="5dp"
                         android:gravity="center_horizontal"
                         android:text="@string/repo"
                         android:textColor="@color/black"
@@ -90,12 +92,9 @@
                         android:id="@+id/descripcion"
                         android:layout_width="157dp"
                         android:layout_height="50dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginBottom="40dp"
+                        android:layout_marginBottom="5dp"
                         android:gravity="center"
                         android:text="@string/date"
                         android:textColor="@color/black"
@@ -105,12 +104,9 @@
                         android:id="@+id/precio"
                         android:layout_width="153dp"
                         android:layout_height="39dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginBottom="40dp"
+                        android:layout_marginBottom="20dp"
                         android:gravity="center"
                         android:text="@string/description"
                         android:textColor="@color/black"
@@ -118,12 +114,11 @@
                 </LinearLayout>
 
 
-
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <!--<include
+    <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -135,6 +130,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>-->
+        app:menu="@menu/activity_main_drawer"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

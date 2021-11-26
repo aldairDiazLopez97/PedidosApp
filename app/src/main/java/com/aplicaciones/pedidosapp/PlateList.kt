@@ -65,7 +65,7 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
                     val Platillos: Platillos? =
                         Platillos(child.child("nombre").getValue<String>(),
                             child.child("descripcion").getValue<String>(),
-                            child.child("precio").getValue<String>(),
+                            child.child("precio").getValue<Double>(),
                             child.child("imagenurl").getValue<String>(),
                             child.key)
                     Platillos?.let { listPlate.add(it) }
@@ -95,7 +95,7 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
             val Platillos = values[position]
             holder.nombre.text = Platillos.nombre
             holder.descripcion.text = Platillos.descripcion
-            holder.precio.text = Platillos.precio
+            holder.precio.text = Platillos.precio.toString()
             holder.imagenurl?.let {
                 Glide.with(holder.itemView.context)
                     .load(Platillos.imagenurl)
@@ -108,7 +108,6 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
                 }
                 v.context.startActivity(intent)
             }
-
 
         }
 

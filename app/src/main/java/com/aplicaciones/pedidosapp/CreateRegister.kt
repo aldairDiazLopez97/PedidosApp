@@ -26,7 +26,9 @@ class CreateRegister : AppCompatActivity() {
         binding = ActivityCreateRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val listTy = resources.getStringArray(R.array.opciones)
+
         val categoria = ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,listTy)
+
 
         binding.Tipo.adapter=categoria
 
@@ -34,38 +36,35 @@ class CreateRegister : AppCompatActivity() {
             ImageController.selectPhoto(this, SELECT_ACTIVITY)
         }
 
-
         binding.tvRegister.setOnClickListener{
-
             val nombre= binding.Nombre.text.toString()
             val descripcion= binding.Descripcion.text.toString()
             val precio= binding.Precio.text.toString().toDouble()
-            val imageUri = ImageController.getImageUri(this, nombre.toLong())
+            var tipo = binding.Tipo.adapter.toString()
+
             binding.img.setImageURI(imageUri)
             binding.Tipo.onItemSelectedListener = object:
                 AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    Toast.makeText(this@CreateRegister,"Registro Exitoso",Toast.LENGTH_LONG).show()
-                    val tipo = listTy[position]
-
-                    database=FirebaseDatabase.getInstance().getReference("Platillos")
-                    val Platillos= Plate(nombre,descripcion,precio,tipo,imageUri)
-                    database.child(nombre).setValue(Platillos).addOnSuccessListener {
-                        binding.Nombre.text?.trim()
-                        binding.Descripcion.text?.trim()
-                        binding.Precio.text?.trim()
-                    }
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    tipo = listTy[position].toString()
                 }
+
                 override fun onNothingSelected(p0: AdapterView<*>?) {
-                    Toast.makeText(this@CreateRegister,"No se completo el registro",Toast.LENGTH_LONG).show()
-
+                    TODO("Not yet implemented")
                 }
+
             }
+            database=FirebaseDatabase.getInstance().getReference("Platillos")
+            val Platillos= Plate(nombre,descripcion,precio,tipo)
+            database.child(nombre).setValue(Platillos).addOnSuccessListener {
+                binding.Nombre.text?.clear()
+                binding.Descripcion.text?.clear()
+                binding.Precio.text?.clear()
+            }
+
+
+
+            /**/
 
         }
     }

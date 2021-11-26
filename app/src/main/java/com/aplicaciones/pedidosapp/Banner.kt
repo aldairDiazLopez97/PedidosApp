@@ -46,7 +46,6 @@ class Banner : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
         when (item.itemId){
             R.id.nav_item_home -> abrirHome()
             R.id.nav_item_platillos -> abrirPlatillos()
-            R.id.nav_item_carrito -> abrirCarrito()
             R.id.nav_item_perfil -> abrirPerfil()
         }
         drawer.closeDrawer(GravityCompat.START)
@@ -58,10 +57,6 @@ class Banner : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
         startActivity(intent)
     }
 
-    private fun abrirCarrito() {
-        val intent = Intent(this, CarritoActivity::class.java)
-        startActivity(intent)
-    }
 
     private fun abrirPlatillos() {
         val intent = Intent(this, PlateList::class.java)

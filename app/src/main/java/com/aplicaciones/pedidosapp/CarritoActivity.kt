@@ -5,13 +5,21 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.aplicaciones.pedidosapp.databinding.ActivityCarritoBinding
 import com.aplicaciones.pedidosapp.databinding.ActivityPlateListBinding
+import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_carrito.*
 
 class CarritoActivity : AppCompatActivity(),  NavigationView.OnNavigationItemSelectedListener {
 
@@ -22,24 +30,35 @@ class CarritoActivity : AppCompatActivity(),  NavigationView.OnNavigationItemSel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCarritoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_carrito)
 
-        val toolbar: androidx.appcompat.widget.Toolbar= findViewById(R.id.toolbar_main)
-        setSupportActionBar(toolbar)
-        drawer = findViewById(R.id.drawer_layout)
-        toggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer.addDrawerListener(toggle)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
-        val navigationView: NavigationView = findViewById(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener (this )
+        val key = intent.getStringExtra("key")
+        val database = Firebase.database
+        @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS") val myRef = database.getReference("Platillos").child(
+            key.toString()
+        )
+
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                val Platillos:Platillos? = dataSnapshot.getValue(Platillos::class.java)
+                if (Platillos != null) {
+                    nombre.text = Platillos.nombre.toString()
+                    descripcion.text = Platillos.descripcion.toString()
+                    precio.text = Platillos.precio.toString()
+                    images(Platillos.imagenurl.toString())
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w("TAG", "Failed to read value.", error.toException())
+            }
+        })
+
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.nav_item_home -> abrirHome()
             R.id.nav_item_platillos -> abrirPlatillos()
-            R.id.nav_item_carrito -> abrirCarrito()
             R.id.nav_item_perfil -> abrirPerfil()
         }
         drawer.closeDrawer(GravityCompat.START)
@@ -48,11 +67,6 @@ class CarritoActivity : AppCompatActivity(),  NavigationView.OnNavigationItemSel
 
     private fun abrirPerfil() {
         val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun abrirCarrito() {
-        val intent = Intent(this, CarritoActivity::class.java)
         startActivity(intent)
     }
 
@@ -81,5 +95,11 @@ class CarritoActivity : AppCompatActivity(),  NavigationView.OnNavigationItemSel
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+    private  fun images(imagenurl: String){
+        Glide.with(this)
+            .load(imagenurl)
+            .into(imagenurlP)
+
     }
 }

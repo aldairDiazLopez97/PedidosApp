@@ -8,9 +8,6 @@
             <item android:id="@+id/nav_item_platillos"
                 android:icon="@drawable/ic_lista_productos"
                 android:title="Platillos"/>
-            <item android:id="@+id/nav_item_carrito"
-                android:icon="@drawable/ic_carrito"
-                android:title="Carrito"/>
         </menu>
     </item>
     <item android:title="Empresa">

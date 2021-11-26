@@ -2,41 +2,47 @@ package com.aplicaciones.pedidosapp
 
 import android.content.Intent
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import com.aplicaciones.pedidosapp.databinding.ActivityPlateListBinding
-import com.google.android.material.navigation.NavigationView
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ktx.getValue
+import kotlinx.android.synthetic.main.activity_item_of_list.view.*
 import kotlinx.android.synthetic.main.activity_plate_list.*
 
-class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
-    private lateinit var binding: ActivityPlateListBinding
 
+class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
+    private val database = Firebase.database
+    private lateinit var messagesListener: ValueEventListener
+    private val listPlate:MutableList<Platillos> = ArrayList()
+    val myRef = database.getReference("Platillos")
     private lateinit var drawer: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_plate_list)
 
-        binding = ActivityPlateListBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-
-        val plate = Plates(R.drawable.frejolada ,"Frejolada","Lo mas deliciosos en comida criolla","Criollo",20.00)
-        val plate1 = Plates(R.drawable.ceviche ,"Ceviche","Lo mas deliciosos en mariscos","Mariscos",30.00)
-        val plate2 = Plates(R.drawable.jugoso ,"Jugoso","Lo mas deliciosos en mariscos","Mariscos",35.00)
-        val plate3 = Plates(R.drawable.cuyada ,"Cuyada","Lo mas deliciosos en comida criolla","Criollo",18.00)
-        val plate4 = Plates(R.drawable.lomo ,"Lomo Saltado","Lo mas deliciosos en menus","Menu",12.00)
-
-        val listPlates = listOf(plate,plate1,plate2,plate3,plate4)
-        val adapt = PlateAdapter(this,listPlates)
-
-        listp.adapter= adapt
-
+        listPlate.clear()
+        setupRecyclerView(platillosRecyclerView)
 
         val toolbar: androidx.appcompat.widget.Toolbar= findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
@@ -48,17 +54,100 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener (this )
 
-        binding.resBan.setOnClickListener{
-            val intent = Intent(this, Banner::class.java)
-            startActivity(intent)
+    }
+    private fun setupRecyclerView(recyclerView: RecyclerView) {
+
+        messagesListener = object : ValueEventListener {
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                listPlate.clear()
+                dataSnapshot.children.forEach { child ->
+                    val Platillos: Platillos? =
+                        Platillos(child.child("nombre").getValue<String>(),
+                            child.child("descripcion").getValue<String>(),
+                            child.child("precio").getValue<String>(),
+                            child.child("imagenurl").getValue<String>(),
+                            child.key)
+                    Platillos?.let { listPlate.add(it) }
+                }
+                recyclerView.adapter = PlatillosViewAdapter(listPlate)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("TAG", "messages:onCancelled: ${error.message}")
+            }
+        }
+        myRef.addValueEventListener(messagesListener)
+
+        deleteSwipe(recyclerView)
+    }
+
+    class PlatillosViewAdapter(private val values: List<Platillos>) :
+        RecyclerView.Adapter<PlatillosViewAdapter.ViewHolder>() {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.activity_item_of_list, parent, false)
+            return ViewHolder(view)
         }
 
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            val Platillos = values[position]
+            holder.nombre.text = Platillos.nombre
+            holder.descripcion.text = Platillos.descripcion
+            holder.precio.text = Platillos.precio
+            holder.imagenurl?.let {
+                Glide.with(holder.itemView.context)
+                    .load(Platillos.imagenurl)
+                    .into(it)
+            }
+
+            holder.itemView.setOnClickListener { v ->
+                val intent = Intent(v.context, CarritoActivity::class.java).apply {
+                    putExtra("key", Platillos.key)
+                }
+                v.context.startActivity(intent)
+            }
+
+
+        }
+
+        override fun getItemCount() = values.size
+
+        inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+            val nombre: TextView = view.nombre
+            val descripcion: TextView = view.descripcion
+            val precio: TextView = view.precio
+            val imagenurl: ImageView? = view.imagenurl
+        }
     }
+
+    private fun deleteSwipe(recyclerView: RecyclerView){
+        val touchHelperCallback: ItemTouchHelper.SimpleCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                listPlate.get(viewHolder.adapterPosition).key?.let { myRef.child(it).setValue(null) }
+                listPlate.removeAt(viewHolder.adapterPosition)
+                recyclerView.adapter?.notifyItemRemoved(viewHolder.adapterPosition)
+                recyclerView.adapter?.notifyDataSetChanged()
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(touchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
+
+
+
+
+
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.nav_item_home -> abrirHome()
             R.id.nav_item_platillos -> abrirPlatillos()
-            R.id.nav_item_carrito -> abrirCarrito()
             R.id.nav_item_perfil -> abrirPerfil()
         }
         drawer.closeDrawer(GravityCompat.START)
@@ -70,10 +159,6 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
         startActivity(intent)
     }
 
-    private fun abrirCarrito() {
-        val intent = Intent(this, CarritoActivity::class.java)
-        startActivity(intent)
-    }
 
     private fun abrirPlatillos() {
         val intent = Intent(this, PlateList::class.java)

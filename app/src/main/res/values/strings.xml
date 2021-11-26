@@ -37,4 +37,19 @@
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
 
+
+    <string name="repo">Platillo A la Carta</string>
+    <string name="date">Final Fantasy es una franquicia de medios creada por Hironobu Sakaguchi
+        y desarrollada por Square Enix. La franquicia se centra en una serie de fantasía y ciencia ficción de videojuegos RPG.</string>
+    <string name="title_activity_main">Platillos</string>
+    <string name="subtitle_activity_main">Lo mas Preferidos</string>
+    <string name="title_activity_add">Nuevo Platillo</string>
+    <string name="title_activity_edit">Datos del Platillo</string>
+    <string name="name_form">Nombre</string>
+    <string name="date_form">Descripcion</string>
+    <string name="url_form">Url imagen</string>
+    <string name="description_form">Precio</string>
+    <string name="save">Agregar Platillo</string>
+    <string name="description">20.00</string>
+
 </resources>

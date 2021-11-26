@@ -1,13 +1,12 @@
 package com.aplicaciones.pedidosapp
 
-import android.net.Uri
-import android.widget.SpinnerAdapter
 
 
-class Plate(
+class Plates(
+    val imagen: Int? =null,
     val nombre:String?=null,
     val descripcion:String?=null,
-    val precio:Double?=null,
     val tipo: String? = null,
-    val imagen: Uri? =null){
+    val precio:Double?=null
+    ){
 }

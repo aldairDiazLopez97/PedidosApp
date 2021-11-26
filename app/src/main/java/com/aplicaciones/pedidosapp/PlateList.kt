@@ -26,16 +26,16 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
         setContentView(binding.root)
 
 
-        /*val plate = Plate(R.drawable.frejolada ,"Frejolada","Lo mas deliciosos en comida criolla","Criollo",20.00)
-        val plate1 = Plate(R.drawable.ceviche ,"Ceviche","Lo mas deliciosos en mariscos","Mariscos",30.00)
-        val plate2 = Plate(R.drawable.jugoso ,"Jugoso","Lo mas deliciosos en mariscos","Mariscos",35.00)
-        val plate3 = Plate(R.drawable.cuyada ,"Cuyada","Lo mas deliciosos en comida criolla","Criollo",18.00)
-        val plate4 = Plate(R.drawable.lomo ,"Lomo Saltado","Lo mas deliciosos en menus","Menu",12.00)
+        val plate = Plates(R.drawable.frejolada ,"Frejolada","Lo mas deliciosos en comida criolla","Criollo",20.00)
+        val plate1 = Plates(R.drawable.ceviche ,"Ceviche","Lo mas deliciosos en mariscos","Mariscos",30.00)
+        val plate2 = Plates(R.drawable.jugoso ,"Jugoso","Lo mas deliciosos en mariscos","Mariscos",35.00)
+        val plate3 = Plates(R.drawable.cuyada ,"Cuyada","Lo mas deliciosos en comida criolla","Criollo",18.00)
+        val plate4 = Plates(R.drawable.lomo ,"Lomo Saltado","Lo mas deliciosos en menus","Menu",12.00)
 
         val listPlates = listOf(plate,plate1,plate2,plate3,plate4)
         val adapt = PlateAdapter(this,listPlates)
 
-        listp.adapter= adapt*/
+        listp.adapter= adapt
 
 
         val toolbar: androidx.appcompat.widget.Toolbar= findViewById(R.id.toolbar_main)

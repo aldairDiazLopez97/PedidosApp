@@ -22,7 +22,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
+class MainActivity : AppCompatActivity()  {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
@@ -62,18 +62,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intent = Intent(this, CreateRegister::class.java)
             startActivity(intent)
         }
-
-        val toolbar: androidx.appcompat.widget.Toolbar= findViewById(R.id.toolbar_main)
-        setSupportActionBar(toolbar)
-        drawer = findViewById(R.id.drawer_layout)
-        toggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer.addDrawerListener(toggle)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
-        val navigationView: NavigationView = findViewById(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener (this )
-
-
         updateUI()
     }
 
@@ -162,51 +150,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
     // 137 y 52
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId){
-            R.id.nav_item_home -> abrirHome()
-            R.id.nav_item_platillos -> abrirPlatillos()
-            R.id.nav_item_carrito -> abrirCarrito()
-            R.id.nav_item_perfil -> abrirPerfil()
-        }
-        drawer.closeDrawer(GravityCompat.START)
-        return true
-    }
 
-    private fun abrirPerfil() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun abrirCarrito() {
-        val intent = Intent(this, CarritoActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun abrirPlatillos() {
-        val intent = Intent(this, PlateList::class.java)
-        startActivity(intent)
-    }
-
-    private fun abrirHome() {
-        val intent = Intent(this, Banner::class.java)
-        startActivity(intent)
-    }
-
-    override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onPostCreate(savedInstanceState)
-        toggle.syncState()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        toggle.onConfigurationChanged(newConfig)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)){
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }
 }

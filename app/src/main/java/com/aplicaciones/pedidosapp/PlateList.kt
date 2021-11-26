@@ -103,7 +103,7 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
             }
 
             holder.itemView.setOnClickListener { v ->
-                val intent = Intent(v.context, CarList::class.java).apply {
+                val intent = Intent(v.context, CarritoActivity::class.java).apply {
                     putExtra("key", Platillos.key)
                 }
                 v.context.startActivity(intent)

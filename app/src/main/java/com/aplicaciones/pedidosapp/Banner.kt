@@ -40,6 +40,11 @@ class Banner : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
         supportActionBar?.setHomeButtonEnabled(true)
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener (this )
+
+        binding.verUbicacion.setOnClickListener{
+            val intent = Intent(this, UbicacionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

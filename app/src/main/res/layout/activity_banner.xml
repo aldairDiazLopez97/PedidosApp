@@ -20,13 +20,13 @@
             android:layout_gravity="center_horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="310dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="43dp"
+                    android:layout_height="53dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/ic_buttom"
@@ -154,7 +154,7 @@
                         </LinearLayout>
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="29dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="34dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="70dp"
@@ -238,11 +238,9 @@
                     android:background="@drawable/ic_buttom"
                     android:paddingLeft="64dp"
                     android:paddingRight="64dp"
-                    android:text="@string/login"
+                    android:text="Ver Ubicacion"
                     android:textSize="15dp"
                     android:textColor="@color/white" />
-
-
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

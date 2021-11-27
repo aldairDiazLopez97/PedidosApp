@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PedidosApp">
-        <activity android:name=".itemCarList"></activity>
+        <activity
+            android:name=".About"
+            android:label="@string/title_activity_about"
+            android:theme="@style/Theme.PedidosApp.NoActionBar"></activity>
+        <activity android:name=".itemCarList" />
         <activity android:name=".CarList" />
         <activity android:name=".EditRegister" />
         <activity android:name=".CarritoActivity" />

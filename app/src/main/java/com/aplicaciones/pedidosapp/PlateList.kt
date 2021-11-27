@@ -148,6 +148,7 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
             R.id.nav_item_home -> abrirHome()
             R.id.nav_item_platillos -> abrirPlatillos()
             R.id.nav_item_perfil -> abrirPerfil()
+            R.id.nav_item_about -> abrirAbout()
         }
         drawer.closeDrawer(GravityCompat.START)
         return true
@@ -166,6 +167,10 @@ class PlateList : AppCompatActivity() , NavigationView.OnNavigationItemSelectedL
 
     private fun abrirHome() {
         val intent = Intent(this, Banner::class.java)
+        startActivity(intent)
+    }
+    private fun abrirAbout() {
+        val intent = Intent(this, About::class.java)
         startActivity(intent)
     }
 
